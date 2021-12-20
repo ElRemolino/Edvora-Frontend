@@ -20,8 +20,6 @@ export default function Home() {
     return () => mounted = false;
   }, [])
 
-  console.log('data',data)
-
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
       <div className="bg-blue-200 md:bg-green-500  lg:bg-blue-500 ml-10 ">
