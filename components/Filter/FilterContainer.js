@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterButton from './FilterButton';
 
 const FilterContainer = () => {
   return (
@@ -6,6 +7,7 @@ const FilterContainer = () => {
       <p className=" pt-6 pl-7  top-[8.72%] left-[12.2%] right-[91.22%] bottom-[88.15%] text-[20px] text-edvora-greyFont leading-6 ">Filters
       <hr className="relative top-3 text-edvora-hr w-[160px]"/>
       </p>
+      <FilterButton  />
     </div>
   )
 }
