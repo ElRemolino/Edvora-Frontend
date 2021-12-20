@@ -4,7 +4,21 @@ import FilterContainer from '../components/Filter/FilterContainer';
 export default function Home() {
   const [data, setData] = useState([]);
 
-  
+  const getData = () => {
+    return fetch('https://assessment-edvora.herokuapp.com')
+      .then(data => data.json())
+  }
+
+  useEffect(() => {
+    let mounted = true;
+    getData()
+      .then(items => {
+        if(mounted) {
+          setData(items)
+        }
+      })
+    return () => mounted = false;
+  }, [])
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
