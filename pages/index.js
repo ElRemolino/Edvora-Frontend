@@ -9,7 +9,18 @@ export default function Home() {
       .then(data => data.json())
   }
 
-  console.log('test', getData())
+  useEffect(() => {
+    let mounted = true;
+    getData()
+      .then(items => {
+        if(mounted) {
+          setData(items)
+        }
+      })
+    return () => mounted = false;
+  }, [])
+
+  console.log('data',data)
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
