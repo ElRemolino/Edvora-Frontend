@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-const DropDownCard = ( { data, handleFilters } ) => {
-  const [filters, setFilters] = useState([]);
-  const liCls = "bg-edvora-greyCard2 text-edvora-greyFont";
+const DropDownCard = ( { data, handleFilters, name } ) => {
+  const [filters, setFilters] = useState({});
+  const liCls = "text-edvora-offwhiteFont hover:text-edvora-black hover:bg-edvora-hr font-medium font-bold h-full";
 
   return (
-    <div>
-      <ul>
+    <div className="relative flex-col columns-1 float-right bg-green-500">
+      <ol className="absolute flex-col min-w-[160px]">
         {data.map((item, i) => (
-          <button data='data-test' key={i} className=" text-edvora-offwhiteFont hover:text-edvora-black hover:bg-edvora-hr font-medium font-bold " onClick={() => handleFilters()}>
+          <button  key={i} className="relative h-[40px] text-edvora-offwhiteFont bg-edvora-greyCard hover:text-edvora-black hover:bg-edvora-hr font-medium w-[160px] bottom-10 left-5" onClick={(e) => handleFilters(e)} data={item} data-name={name} data-listval={item.brand_name} >
             {item.brand_name}
           </button>
         ))}
-      </ul>
+      </ol>
     </div>
   )
 }
