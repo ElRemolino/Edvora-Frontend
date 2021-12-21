@@ -14,13 +14,15 @@ const DropDownBtnWithCard = ( { data, name } ) => {
     let filterName =e.target.attributes.getNamedItem("data-name").value;
     setFilter({[filterName]: newFilter})
     console.log(filter)
+    return
+
   }
 
   return (
     <div className="  w-[168px] bg-edvora-greyCard mt-11 text-edvora-greyCard ml-7 ">
       <button  className="flex justify-between w-full h-[37.5px] font-light text-[20px] " onClick={() => setOpen(!open)}>
-        <span className="bg-rose-500 h-full pl-2 font-light text-edvora-offwhiteFont ">{name}</span>
-        <FontAwesomeIcon className="mr-3 mt-2  " icon={faCaretDown} ></FontAwesomeIcon>
+        <span className="h-full pl-2 font-light text-edvora-offwhiteFont ">{name}</span>
+        <FontAwesomeIcon className="text-edvora-offwhiteFont mr-3 mt-2  " icon={faCaretDown} size="lg" ></FontAwesomeIcon>
       </button>
       <div>
         {open && <DropDownCard data={data} name={name} handleFilters={handleFilters}/>}
