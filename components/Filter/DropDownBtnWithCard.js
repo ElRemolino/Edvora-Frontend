@@ -20,7 +20,7 @@ const DropDownBtnWithCard = ( { data, name } ) => {
 
   return (
     <div className="  w-[168px] bg-edvora-greyCard mt-11 text-edvora-greyCard ml-7 ">
-      <button  className="flex justify-between w-full h-[37.5px] font-light text-[20px] " onClick={() => setOpen(!open)}>
+      <button  className="flex justify-between w-full h-[37.5px] font-light text-[20px] rounded-md " onClick={() => setOpen(!open)}>
         <span className="h-full pl-2 font-light text-edvora-offwhiteFont ">{name}</span>
         <FontAwesomeIcon className="text-edvora-offwhiteFont mr-3 mt-2  " icon={faCaretDown} size="lg" ></FontAwesomeIcon>
       </button>
