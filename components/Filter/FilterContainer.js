@@ -8,10 +8,8 @@ const FilterContainer = ( { data } ) => {
       </p>
       <hr className="relative top-3 left-6 text-edvora-hr w-[160px]"></hr>
       {/* <FilterButton  /> */}
-     
 
-        <DropDownBtnWithCard data={data} name={'Product'} />
-        <DropDownBtnWithCard data={data} name={'Product'} />
+
         <DropDownBtnWithCard data={data} name={'Product'} />
 
     </div>
