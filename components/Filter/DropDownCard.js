@@ -8,9 +8,9 @@ const DropDownCard = ( { data, handleFilters, name } ) => {
     <div className="relative flex-col columns-1 float-right bg-green-500">
       <ol className="absolute flex-col min-w-[160px]">
         {data.map((item, i) => (
-          <button  key={i} className="relative h-[40px] text-edvora-offwhiteFont bg-edvora-greyCard hover:text-edvora-black hover:bg-edvora-hr font-medium w-[160px] bottom-10 left-5" onClick={(e) => handleFilters(e)} data={item} data-name={name} data-listval={item.brand_name} >
+          <li  key={i} className="relative h-[40px] text-edvora-offwhiteFont bg-edvora-greyCard hover:text-edvora-black hover:bg-edvora-hr font-medium w-[160px] bottom-10 left-5" onClick={(e) => handleFilters(e)} data={item} data-name={name} data-listval={item.brand_name} >
             {item.brand_name}
-          </button>
+          </li>
         ))}
       </ol>
     </div>

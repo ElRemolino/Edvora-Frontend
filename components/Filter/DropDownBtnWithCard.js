@@ -13,6 +13,7 @@ const DropDownBtnWithCard = ( { data, name } ) => {
     let newFilter = e.target.attributes.getNamedItem("data-listval").value;
     let filterName =e.target.attributes.getNamedItem("data-name").value;
     setFilter({[filterName]: newFilter});
+    console.log(filter)
   }
 
   return (

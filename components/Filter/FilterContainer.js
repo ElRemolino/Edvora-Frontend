@@ -10,7 +10,7 @@ const FilterContainer = ( { data } ) => {
       <div className="space-y-4" >
         <DropDownBtnWithCard data={data} name={'Product'} />
         <DropDownBtnWithCard data={data} name={'State'} />
-        <DropDownBtnWithCard data={data} name={'State'} />
+        <DropDownBtnWithCard data={data} name={'City'} />
       </div>
     </div>
   )
