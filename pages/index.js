@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FilterContainer from '../components/Filter/FilterContainer';
+import CarouselContainer from '../components/Carousel/CarouselContainer';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -40,21 +41,10 @@ export default function Home() {
           <h1 className=" text-white font-bold text-4xl max-h-12 w-[150px]">Edvora</h1>
           <h2 className=" text-edvora-greyFont h-15 w-[97px] text-2xl font-medium relative top-8 ">Products</h2>
         </div>
-        <div className="bg-yellow-500 lg:h-[80%] lg:max-w-[50vw]">
-
-          <div className=" bg-green-400 relative top-14 ">
-            <h2 className="text-white text-2xl">Product Name</h2>
-            <hr className="text-edvora-hr h-[10px]"></hr>
-            <div className="bg-red-500 flex">
-              <div className="bg-black h-[190px] w-[95%] rounded-2xl lg:flex lg:justify-center lg:p-5 lg:relative lg:right-3 lg:space-x-4">
-                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px] ">#</div>
-                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
-                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
-                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
-              </div>
-              <button className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[40px] lg:absolute lg:top-16 lg:right-2">arrow</button>
-            </div>
-
+        <div className="lg:min-h-[80vh] lg:max-w-[50vw]">
+          <div className=" space-y-20">
+            <CarouselContainer />
+            <CarouselContainer />
           </div>
         </div>
       </div>
