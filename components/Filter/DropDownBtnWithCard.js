@@ -6,7 +6,6 @@ import DropDownCard from './DropDownCard';
 const DropDownBtnWithCard = ( { data, name } ) => {
   const [filter, setFilter] = useState({name: ''});
   const [open, setOpen] = useState(false);
-  const liCls = "bg-edvora-greyCard2 text-edvora-greyFont";
 
   const handleFilters = (e) => {
     let newFilter = e.target.innerHTML;
@@ -14,7 +13,6 @@ const DropDownBtnWithCard = ( { data, name } ) => {
     setOpen(!open);
     console.log(filter);
   }
-
 
   return (
     <div className="  w-[168px] bg-edvora-greyCard mt-11 text-edvora-greyCard ml-7 ">
