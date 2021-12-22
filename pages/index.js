@@ -34,10 +34,7 @@ export default function Home() {
   useEffect(() => {
     let filtered = [];
 
-
     if(filter.Product) {
-      console.log('we have a product filter, ', filter.Product);
-      // go into loop over data
       data.forEach(item => {
         if (item.brand_name === filter.Product) {
           if(filter.State) {
@@ -54,8 +51,16 @@ export default function Home() {
         }
       })
     }
+
     setFilteredData(filtered)
   }, [filter])
+
+  // handle case where we dont have filtered data or client picks a city that isnt in the state
+  // useEffect(() => {
+  //   if(filteredData.length === 0) {
+  //     alert('No options in desired specification, resetting filters')
+  //   }
+  // }, [filteredData])
 
 
   return (
