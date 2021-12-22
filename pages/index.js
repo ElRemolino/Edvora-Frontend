@@ -33,19 +33,38 @@ export default function Home() {
       <div className="bg-blue-200 md:bg-green-500  lg:bg-blue-500 ml-10 ">
         <FilterContainer data={data} products={products} states={states} cities={cities}/>
       </div>
-      <div className="flex-row bg-grey-200  w-[78%] ml-10 mr-10">
-        <div className="relative mt-11 ">
+
+      {/* Main Content Containers */}
+      <div className="flex-row bg-purple-500 w-[78vw] pl-10 pr-10">
+
+        {/* Headers Containers */}
+        <div className="relative pt-11 pb-4 lg:bg-red-200 ">
           <h1 className=" text-white font-bold text-4xl ">Edvora</h1>
-          <h2 className=" text-edvora-greyFont h-[30px] mt-4 w-[97px] text-2xl font-medium ">Products</h2>
+          <h2 className=" text-edvora-greyFont h-[30px] pt-4 w-[97px] text-2xl font-medium ">Products</h2>
         </div>
 
-        <div className="bg-red-500 relative h-full">
-          <h3>
-            product name
-          </h3>
-          <hr className=" bg-edvora-vector104 relative top-5 w-[970px]"/>
-        </div>
+        {/* Product Carosel Containers */}
+        <div className="flex-row inline-block h-[90vh] min-w-[74vw] max-w-[] space-y-9 bg-red-500 pt-8 ">
+          <div className="inline-block min-h-[50vh]  bg-green-500 border-4 border-white">
+            <h3 className="font-normal text-xl ">
+              Product Name
+            </h3>
+            <hr className=" bg-edvora-vector104 relative top-3 "/>
+            <div className="bg-black ">
+              rectangle container
+            </div>
+          </div>
 
+          <div className="inline-block min-h-[50vh]  bg-green-500 border-4 border-white">
+            <h3 className="font-normal text-xl ">
+              Product Name
+            </h3>
+            <hr className=" bg-edvora-vector104 relative top-3 "/>
+            <div className="bg-black ">
+              rectangle container
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
