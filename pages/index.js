@@ -35,7 +35,7 @@ export default function Home() {
       </div>
 
       {/* Main Content Containers */}
-      <div className=" bg-purple-500 p-10 sm:min-w-[70]% md:min-w-[100%] ">
+      <div className="  p-10 sm:min-w-[70]% md:max-w-[100%]">
         grid goes here
         <div className=" bg-blue-400 md:max-w-[900px] lg:max-w-[1000px] ">
           <h1 className=" bg-red-400 text-white font-bold text-4xl max-h-12 w-[150px] ">Edvora</h1>
