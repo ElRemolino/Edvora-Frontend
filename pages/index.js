@@ -71,8 +71,8 @@ export default function Home() {
         </div>
         <div className="lg:min-h-[80vh] lg:max-w-[50vw]">
           <div className="lg:space-y-20">
-            <CarouselContainer />
-            <CarouselContainer />
+            <CarouselContainer filteredData={filteredData} />
+            <CarouselContainer filteredData={filteredData} />
           </div>
         </div>
       </div>

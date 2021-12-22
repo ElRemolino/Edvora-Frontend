@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 
-const Card = () => {
+const Card = ( { filteredData }) => {
+
   return (
     <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px] grid grid-cols-2 gap-2">
       <div className="bg-red-500 ">img</div>
@@ -15,7 +16,6 @@ const Card = () => {
        <span className=" text-edvora-greyFont text-sm ">date</span>
        description
       </div>
-
     </div>
   )
 }
