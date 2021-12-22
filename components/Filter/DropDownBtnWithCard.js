@@ -11,8 +11,10 @@ const DropDownBtnWithCard = ( { data, name } ) => {
   const handleFilters = (e) => {
     let newFilter = e.target.innerHTML;
     setFilter({name: newFilter});
+    setOpen(!open);
     console.log(filter);
   }
+
 
   return (
     <div className="  w-[168px] bg-edvora-greyCard mt-11 text-edvora-greyCard ml-7 ">
