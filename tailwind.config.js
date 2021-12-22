@@ -13,6 +13,7 @@ module.exports = {
           greyCard2: 'rgba(19,19,19,.9)',
           hr: '#CBCBCB',
           offwhiteFont: '#FFFFFF',
+          vector104: 'rgba(203, 203, 203, 0.5)',
         }
       }
     },

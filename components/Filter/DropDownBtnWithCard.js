@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import DropDownBtn from './DropDownBtn';
 import DropDownCard from './DropDownCard';
 
 const DropDownBtnWithCard = ( { data, name } ) => {
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState({name: ''});
   const [open, setOpen] = useState(false);
-  const liCls = "bg-edvora-greyCard2 text-edvora-greyFont";
 
   const handleFilters = (e) => {
-    let newFilter = e.target.attributes.getNamedItem("data-listval").value;
-    let filterName =e.target.attributes.getNamedItem("data-name").value;
-    setFilter({[filterName]: newFilter});
+    let newFilter = e.target.innerHTML;
+    setFilter({name: newFilter});
+    setOpen(!open);
+    console.log(filter);
   }
 
   return (
