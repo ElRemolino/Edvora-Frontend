@@ -30,20 +30,32 @@ export default function Home() {
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
-      <div className="bg-red-500 md:bg-green-500  lg:bg-blue-500    ">
+      <div name="filter-container">
         <FilterContainer data={data} products={products} states={states} cities={cities} />
       </div>
 
       {/* Main Content Containers */}
-      <div className="  p-10 sm:min-w-[70]% md:max-w-[100%]">
-        grid goes here
-        <div className=" bg-blue-400 md:max-w-[900px] lg:max-w-[1000px] ">
-          <h1 className=" bg-red-400 text-white font-bold text-4xl max-h-12 w-[150px] ">Edvora</h1>
-          <h2 className=" bg-red-400 text-edvora-greyFont relative top- h-15 w-[97px] text-2xl font-medium ">Products</h2>
+      <div className="lg:p-10 lg:relative lg:left-20 lg:w-[100vw]">
+        <div className="top-8">
+          <h1 className=" text-white font-bold text-4xl max-h-12 w-[150px]">Edvora</h1>
+          <h2 className=" text-edvora-greyFont h-15 w-[97px] text-2xl font-medium relative top-8 ">Products</h2>
         </div>
-        <div className="bg-yellow-500 h-[80%] grid md:grid-rows-2 md:max-w-[900px] lg:max-w-[1000px]">
-          <div className=" bg-green-400  mt-8 border-2 md:min-h-[196px] md:w-[80vw] md:m-10 lg:max-w-[900px]">carosel</div>
-          <div className=" bg-green-400  mt-8 border-2 md:min-h-[196px] md:max-w-[800px] md:m-10 lg:max-w-[900px]">carosel</div>
+        <div className="bg-yellow-500 lg:h-[80%] lg:max-w-[50vw]">
+
+          <div className=" bg-green-400 relative top-14 ">
+            <h2 className="text-white text-2xl">Product Name</h2>
+            <hr className="text-edvora-hr h-[10px]"></hr>
+            <div className="bg-red-500 flex">
+              <div className="bg-black h-[190px] w-[95%] rounded-2xl lg:flex lg:justify-center lg:p-5 lg:relative lg:right-3 lg:space-x-4">
+                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px] ">#</div>
+                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
+                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
+                <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
+              </div>
+              <button className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[40px] lg:absolute lg:top-16 lg:right-2">arrow</button>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
