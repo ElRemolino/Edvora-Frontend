@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card';
 
 const CarouselContainer = () => {
   return (
@@ -7,7 +8,7 @@ const CarouselContainer = () => {
       <hr className="text-edvora-hr lg:h-[10px] lg:w-[85%]"></hr>
       <div className="lg:flex lg:pt-4">
         <div className="bg-black h-[190px] max-w-[90%] rounded-2xl lg:flex lg:justify-start lg:p-5 lg:relative lg:right-3 lg:space-x-5">
-          <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
+          <Card />
           <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
           <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
           <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
