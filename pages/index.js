@@ -69,8 +69,8 @@ export default function Home() {
           <h1 className=" text-white font-bold text-4xl max-h-12 w-[150px]">Edvora</h1>
           <h2 className=" text-edvora-greyFont h-15 w-[97px] text-2xl font-medium relative top-8 ">Products</h2>
         </div>
-        <div className="lg:bg-red-500 lg:min-h-[80vh] lg:w-[70vw] md:min-h-[80vh] md:w-[60vw] md:bg-blue-500 ">
-          <div className="lg:bg-yellow-500 md:bg-green-500 lg:min-h-[80%] lg:w-[70vw] lg:space-y-20 md:spaye-y-20">
+        <div className=" lg:min-h-[80vh] lg:w-[70vw] md:min-h-[80vh] md:w-[60vw]  ">
+          <div className=" lg:min-h-[80%] lg:w-[70vw] lg:space-y-20 md:spaye-y-20">
             <CarouselContainer filteredData={filteredData} />
             <CarouselContainer filteredData={filteredData} />
           </div>

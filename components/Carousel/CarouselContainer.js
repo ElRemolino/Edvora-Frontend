@@ -12,7 +12,7 @@ const CarouselContainer = ({ filteredData }) => {
       <h2 className="text-white text-2xl">Product Name</h2>
       <hr className="text-edvora-hr lg:h-[10px] lg:w-[85%]"></hr>
       <div className="lg:flex lg:pt-4">
-        <div className="bg-black grid lg:grid-cols-4 rounded-2xl lg:h-[80%] lg:w-[80vw] lg:p-5 lg:relative lg:right-3 lg:space-x-5 md:bg-red-500 md:grid-cols-2">
+        <div className="bg-black grid lg:grid-cols-4 rounded-2xl lg:h-[80%] lg:max-w-[80vw] lg:p-5 lg:relative lg:right-3 lg:space-x-5  md:grid-cols-2 md:pl-5 md:pt-5 md:pb-5">
           {cardsDisplayed.map((item, i) => {
             return (
               <Card key={i} item={item} />

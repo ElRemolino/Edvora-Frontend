@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Card = ( { item }) => {
   // convert date
   return (
-    <div className=" bg-edvora-greyCard text-white   rounded-lg h-[170px] w-[210px] grid lg:grid-cols-2 lg:gap-2 md:bg-purple-600  md:">
+    <div className=" bg-edvora-greyCard text-white   rounded-lg h-[170px] w-[210px] grid lg:grid-cols-2 lg:gap-2 md:m-3">
       <div className="">img</div>
       <ul className=" lg:space-y-3 ">
         <li className=" lg:text-sm ">{item.product_name}</li>
