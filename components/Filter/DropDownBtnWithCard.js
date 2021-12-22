@@ -3,15 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import DropDownCard from './DropDownCard';
 
-const DropDownBtnWithCard = ( { data, name } ) => {
-  const [filter, setFilter] = useState({name: ''});
+const DropDownBtnWithCard = ( { data, name, filter, setFilter } ) => {
   const [open, setOpen] = useState(false);
 
   const handleFilters = (e) => {
     let newFilter = e.target.innerHTML;
-    setFilter({name: newFilter});
+    setFilter({...filter, [name]: newFilter});
     setOpen(!open);
-    console.log(filter);
   }
 
   return (

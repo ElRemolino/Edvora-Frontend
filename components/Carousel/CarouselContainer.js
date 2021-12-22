@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from './Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const CarouselContainer = () => {
   return (
@@ -13,7 +15,7 @@ const CarouselContainer = () => {
           <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
           <div className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[210px]">#</div>
         </div>
-        <button className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[40px] lg:relative lg:top-6 lg:left-8">arrow</button>
+        <button className=" bg-edvora-greyCard text-white lg:h-[150px] lg:w-[40px] lg:relative lg:top-6 lg:left-8"><FontAwesomeIcon className="text-edvora-offwhiteFont mr-3 mt-2  " icon={faChevronRight} size="lg" ></FontAwesomeIcon></button>
       </div>
     </div>
   )
