@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FilterContainer from '../components/Filter/FilterContainer';
+import CarouselContainer from '../components/Carousel/CarouselContainer';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -30,22 +31,22 @@ export default function Home() {
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
-      <div className="bg-blue-200 md:bg-green-500  lg:bg-blue-500 ml-10 ">
-        <FilterContainer data={data} products={products} states={states} cities={cities}/>
+      <div name="filter-container">
+        <FilterContainer data={data} products={products} states={states} cities={cities} />
       </div>
-      <div className="flex-row bg-grey-200  w-[78%] ml-10 mr-10">
-        <div className="relative mt-11 ">
-          <h1 className=" text-white font-bold text-4xl ">Edvora</h1>
-          <h2 className=" text-edvora-greyFont h-[30px] mt-4 w-[97px] text-2xl font-medium ">Products</h2>
-        </div>
 
-        <div className="bg-red-500 relative h-full">
-          <h3>
-            product name
-          </h3>
-          <hr className=" bg-edvora-vector104 relative top-5 w-[970px]"/>
+      {/* Main Content Containers */}
+      <div className="lg:p-10 lg:relative lg:left-20 lg:w-[100vw]">
+        <div className="top-8">
+          <h1 className=" text-white font-bold text-4xl max-h-12 w-[150px]">Edvora</h1>
+          <h2 className=" text-edvora-greyFont h-15 w-[97px] text-2xl font-medium relative top-8 ">Products</h2>
         </div>
-
+        <div className="lg:min-h-[80vh] lg:max-w-[50vw]">
+          <div className=" space-y-20">
+            <CarouselContainer />
+            <CarouselContainer />
+          </div>
+        </div>
       </div>
     </div>
   )
