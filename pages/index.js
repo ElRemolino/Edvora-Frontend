@@ -30,12 +30,12 @@ export default function Home() {
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
-      <div className="bg-blue-200 md:bg-green-500  lg:bg-blue-500 ml-10 ">
-        <FilterContainer data={data} products={products} states={states} cities={cities}/>
+      <div className="bg-red-500 md:bg-green-500  lg:bg-blue-500 ml-10 ">
+        <FilterContainer data={data} products={products} states={states} cities={cities} />
       </div>
 
       {/* Main Content Containers */}
-      <div className="flex-row bg-purple-500 w-[78vw] pl-10 pr-10">
+      <div className=" bg-purple-500">
 
         {/* Headers Containers */}
         <div className="relative pt-11 pb-4 lg:bg-red-200 ">
@@ -44,8 +44,8 @@ export default function Home() {
         </div>
 
         {/* Product Carosel Containers */}
-        <div className="flex-row inline-block h-[90vh] min-w-[74vw] max-w-[] space-y-9 bg-red-500 pt-8 ">
-          <div className="inline-block min-h-[50vh]  bg-green-500 border-4 border-white">
+        <div className=" h-[90vh] min-w-[75vw] bg-yellow-500 pt-8 ">
+          <div className=" min-h-[50%] bg-green-500 border-4 border-white">
             <h3 className="font-normal text-xl ">
               Product Name
             </h3>
@@ -55,7 +55,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="inline-block min-h-[50vh]  bg-green-500 border-4 border-white">
+          <div className="min-h-[50%]  bg-green-500 border-4 border-white">
             <h3 className="font-normal text-xl ">
               Product Name
             </h3>
