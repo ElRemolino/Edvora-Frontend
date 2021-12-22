@@ -35,15 +35,15 @@ export default function Home() {
       </div>
 
       {/* Main Content Containers */}
-      <div className=" bg-purple-500 p-10 md:w-[90%] w-[80vw]">
+      <div className=" bg-purple-500 p-10 sm:min-w-[70]% md:min-w-[100%] ">
         grid goes here
-        <div className=" bg-blue-400 ">
+        <div className=" bg-blue-400 md:max-w-[900px] lg:max-w-[1000px] ">
           <h1 className=" bg-red-400 text-white font-bold text-4xl max-h-12 w-[150px] ">Edvora</h1>
           <h2 className=" bg-red-400 text-edvora-greyFont relative top- h-15 w-[97px] text-2xl font-medium ">Products</h2>
         </div>
-        <div className="bg-yellow-500 h-[80%] grid md:grid-rows-2 md:w-[]80vw">
-          <div className=" bg-green-400  mt-8 border-2 min-h-[30%] md:w-[65vw] md:m-10">carosel</div>
-          <div className=" bg-green-400  mt-8 border-2 min-h-[30%] md:w-[65vw] md:m-10">carosel</div>
+        <div className="bg-yellow-500 h-[80%] grid md:grid-rows-2 md:max-w-[900px] lg:max-w-[1000px]">
+          <div className=" bg-green-400  mt-8 border-2 md:min-h-[196px] md:w-[80vw] md:m-10 lg:max-w-[900px]">carosel</div>
+          <div className=" bg-green-400  mt-8 border-2 md:min-h-[196px] md:max-w-[800px] md:m-10 lg:max-w-[900px]">carosel</div>
         </div>
       </div>
     </div>
