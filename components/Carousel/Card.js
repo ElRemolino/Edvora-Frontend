@@ -12,7 +12,7 @@ const Card = ( { item }) => {
         <li className="  lg:text-sm ">{'$' + item.price + '.00'}</li>
       </ul>
       <div className=" col-span-2 grid lg:grid-cols-2 lg:grid-rows-3">
-       <span className=" text-edvora-greyFont text-sm relative left-2 -top-1">{item.address.state}</span>
+       <span className=" text-edvora-greyFont text-sm relative left-2 -top-1">{item.address.state + ', ' + item.address.city}</span>
        <span className=" text-edvora-greyFont text-xs w-[110%]">Date:{item.date.slice(0,10)}</span>
        <span className=" text-edvora-greyFont text-xs lg:col-span-2 relative left-2 ">{item.discription} test</span>
       </div>

@@ -8,7 +8,10 @@ const DropDownBtnWithCard = ( { data, name, filter, setFilter } ) => {
 
   const handleFilters = (e) => {
     let newFilter = e.target.innerHTML;
-    setFilter({...filter, [name]: newFilter});
+    if (newFilter === filter) {
+      newFilter = '';
+    } 
+    setFilter(newFilter);
     setOpen(!open);
   }
 
