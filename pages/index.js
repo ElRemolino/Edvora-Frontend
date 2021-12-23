@@ -70,9 +70,9 @@ export default function Home() {
           statesAvailable.add(item.address.state);
           citiesAvailable.add(item.address.city);
         }
-      })
+      });
     }
-    // setStates([...statesAvailable]);
+    setStates([...statesAvailable]);
     setCities([...citiesAvailable]);
     setFilteredData(filteredProducts);
   }
@@ -95,15 +95,13 @@ export default function Home() {
       setCities([...citiesAvailable]);
       setFilteredData(filteredProducts);
     }
-
-    console.log(productFilter, filteredData.length, filteredData[0])
   }
 
 
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
-      <div name="filter-container">
+      <div name="filter-container" className=" flex">
         <FilterContainer data={data} products={products} states={states} cities={cities} productFilter={productFilter} setProductFilter={setProductFilter} stateFilter={stateFilter} setStateFilter={setStateFilter} cityFilter={cityFilter} setCityFilter={setCityFilter} />
       </div>
       {/* Main Content Containers */}
