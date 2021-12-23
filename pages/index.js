@@ -11,9 +11,9 @@ export default function Home() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   //state for which filter was chosen
-  const [productFilter, setProductFilter] = useState('')
-  const [stateFilter, setStateFilter] = useState('')
-  const [cityFilter, setCityFilter] = useState('')
+  const [productFilter, setProductFilter] = useState('');
+  const [stateFilter, setStateFilter] = useState('');
+  const [cityFilter, setCityFilter] = useState('');
 
   useEffect(() => {
     fetch('https://assessment-edvora.herokuapp.com')
