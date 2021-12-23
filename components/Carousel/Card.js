@@ -3,6 +3,7 @@ import Image from 'next/image';
 import URL from '../../public/fromGetReq.jpeg';
 
 const Card = ( { item }) => {
+  
   return (
     <div className=" bg-edvora-greyCard text-white   rounded-lg h-[170px] w-[210px] grid lg:grid-cols-2 lg:gap-2 md:m-3">
       <Image src={URL} alt="next.js requires you have the url already, couldnt make use of the url from the get request" ></Image>
