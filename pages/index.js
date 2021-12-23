@@ -55,7 +55,7 @@ export default function Home() {
     })
 
     setFilteredData(filteredCities);
-    applyProductFilter();
+    // applyProductFilter();
   }
 
   const applyStateFilter = () => {
@@ -64,8 +64,9 @@ export default function Home() {
     let citiesAvailable = new Set();
 
     if(productFilter !== '' && stateFilter !== '') {
-      data.forEach(item => {
+      filteredData.forEach(item => {
         if (item.brand_name === productFilter && item.address.state === stateFilter) {
+          console.log('test', item)
           filteredProducts.push(item);
           statesAvailable.add(item.address.state);
           citiesAvailable.add(item.address.city);
@@ -75,6 +76,7 @@ export default function Home() {
     setStates([...statesAvailable]);
     setCities([...citiesAvailable]);
     setFilteredData(filteredProducts);
+    console.log('filteredprod', filteredProducts, 'filteredData',filteredData);
   }
 
   const applyProductFilter = () => {
@@ -112,8 +114,8 @@ export default function Home() {
         </div>
         <div className=" lg:min-h-[80vh] lg:w-[70vw] md:min-h-[80vh] md:w-[60vw]  ">
           <div className=" lg:min-h-[80%] lg:w-[70vw] lg:space-y-20 md:spaye-y-20">
-            <CarouselContainer filteredData={filteredData} />
-            <CarouselContainer filteredData={filteredData} />
+            <CarouselContainer productFilter={productFilter} filteredData={filteredData} />
+            <CarouselContainer productFilter={productFilter} filteredData={filteredData} />
           </div>
         </div>
       </div>

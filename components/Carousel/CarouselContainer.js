@@ -3,25 +3,15 @@ import Card from './Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const CarouselContainer = ({ filteredData }) => {
-  let length = filteredData.length;
-  let prev = 4;
+const CarouselContainer = ({ productFilter, filteredData }) => {
+
   let displayed = filteredData.slice(0, 4)
 
-  const handleDisplay = () => {
-    console.log(displayed, filteredData)
-    if(prev + 4 > length) {
-      displayed = filteredData.slice(prev, prev - length);
-      prev = 4;
-    } else {
-      displayed = filteredData.slice(prev, prev + 4);
-      prev += 4;
-    }
-  }
+
 
   return (
     <div className="lg:relative lg:top-14 lg:max-w-[70vw] lg:w-[80vw]">
-      <h2 className="text-white text-2xl pb-4">Product Name</h2>
+      <h2 className="text-white text-2xl pb-4">{productFilter}</h2>
       <hr className="text-edvora-hr lg:h-[10px] lg:w-[85%] "></hr>
       <div className="lg:flex lg:pt-4">
         <div className="bg-black grid lg:grid-cols-4 rounded-2xl lg:h-[80%] lg:max-w-[80vw] lg:p-5 lg:relative lg:right-3 lg:space-x-5  md:grid-cols-2 md:pl-5 md:pt-5 md:pb-5">
@@ -33,7 +23,7 @@ const CarouselContainer = ({ filteredData }) => {
               })
           }
         </div>
-        <button onClick={handleDisplay} className="bg-edvora-greyCard text-white lg:h-[150px] lg:w-[40px] lg:relative lg:top-6 lg:left-8"><FontAwesomeIcon className="text-edvora-offwhiteFont mr-3 mt-2" icon={faChevronRight} size="lg" />
+        <button  className="bg-edvora-greyCard text-white lg:h-[150px] lg:w-[40px] lg:relative lg:top-6 lg:left-8"><FontAwesomeIcon className="text-edvora-offwhiteFont mr-3 mt-2" icon={faChevronRight} size="lg" />
         </button>
       </div>
     </div>
