@@ -1,28 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const CarouselContainer = ({ productFilter, filteredData }) => {
-  let length = filteredData.length;
-  const [counter, setCounter] = useState(0);
-
+  const [counter, setCounter] = useState(4);
   let displayed = filteredData.slice(0, counter);
-  const [display, setDisplay] = useState(displayed)
+  const [display, setDisplay] = useState([]);
+  let length = filteredData.length;
 
-  const handleClick = () => {
-    console.log(length, counter);
-    console.log(display);
-    if (length - counter < 4) {
-      let newDisplay = filteredData.slice(counter);
-      setCounter(0);
-      setDisplay(newDisplay);
-    } else {
-      let newDisplay = filteredData.slice(counter, counter + 4);
-      setCounter(counter + 4);
-      setDisplay(newDisplay);
-    }
-  }
+  // const handleClick = () => {
+  //   console.log(length, counter);
+  //   console.log(display);
+  //   if (length - counter < 4) {
+  //     let newDisplay = filteredData.slice(counter);
+  //     setCounter(0);
+  //     setDisplay(newDisplay);
+  //   } else {
+  //     let newDisplay = filteredData.slice(counter, counter + 4);
+  //     setCounter(counter + 4);
+  //     setDisplay(newDisplay);
+  //   }
+  // }
 
 
   return (
