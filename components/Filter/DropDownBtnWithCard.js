@@ -9,7 +9,7 @@ const DropDownBtnWithCard = ( { data, name, filter, setFilter } ) => {
 
   const handleFilters = (e) => {
     let newFilter = e.target.innerHTML;
-    if (newFilter === filter) {
+    if (newFilter === display) {
       newFilter = '';
       setDisplay(name);
     } else {

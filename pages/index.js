@@ -72,7 +72,7 @@ export default function Home() {
         }
       })
     }
-    setStates([...statesAvailable]);
+    // setStates([...statesAvailable]);
     setCities([...citiesAvailable]);
     setFilteredData(filteredProducts);
   }
@@ -95,6 +95,8 @@ export default function Home() {
       setCities([...citiesAvailable]);
       setFilteredData(filteredProducts);
     }
+
+    console.log(productFilter, filteredData.length, filteredData[0])
   }
 
 
