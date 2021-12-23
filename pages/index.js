@@ -53,14 +53,12 @@ export default function Home() {
 
   useEffect(() => {
     if(cityFilter === "") {
-      applyProductFilter();
-      applyStateFilter
+      applyStateFilter();
     } else {
-      applyProductFilter();
       applyStateFilter();
       applyCityFilter();
     }
-  })
+  }, [cityFilter])
 
   //handle when user picks a city
   const applyCityFilter = () => {
