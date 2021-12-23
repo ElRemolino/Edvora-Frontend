@@ -4,11 +4,16 @@ import CarouselContainer from '../components/Carousel/CarouselContainer';
 
 export default function Home() {
   const [data, setData] = useState([]);
+  //data sent to carousel
   const [filteredData, setFilteredData] = useState([]);
+  //determins filter options on render
   const [products, setProducts] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
-  const [filter, setFilter] = useState({});
+  //state for which filter was chosen
+  const [productFilter, setProductFilter] = useState('')
+  const [stateFilter, setStateFilter] = useState('')
+  const [cityFilter, setCityFilter] = useState('')
 
   useEffect(() => {
     fetch('https://assessment-edvora.herokuapp.com')
@@ -31,15 +36,56 @@ export default function Home() {
       });
   }, []);
 
+  //handles if user picks new product
   useEffect(() => {
-    let filtered = [];
+    applyProductFilter();
+    applyStateFilter();
+    applyCityFilter();
+  }, [productFilter, stateFilter, cityFilter])
+
+  //handle if user picks a new state
+
+  //handle when user picks a city
+  const applyCityFilter = () => {
+    let filteredCities = [];
+    filteredData.forEach(item => {
+      if(item.address.city === cityFilter){
+        filteredCities.push(item);
+      }
+    })
+
+    setFilteredData(filteredCities);
+    applyProductFilter();
+  }
+
+  const applyStateFilter = () => {
+    let filteredProducts = [];
     let statesAvailable = new Set();
     let citiesAvailable = new Set();
 
-    if(filter.Product) {
+    if(productFilter !== '' && stateFilter !== '') {
       data.forEach(item => {
-        if (item.brand_name === filter.Product) {
-          filtered.push(item);
+        if (item.brand_name === productFilter && item.address.state === stateFilter) {
+          filteredProducts.push(item);
+          statesAvailable.add(item.address.state);
+          citiesAvailable.add(item.address.city);
+        }
+      })
+    }
+    setStates([...statesAvailable]);
+    setCities([...citiesAvailable]);
+    setFilteredData(filteredProducts);
+  }
+
+  const applyProductFilter = () => {
+    let filteredProducts = [];
+    let statesAvailable = new Set();
+    let citiesAvailable = new Set();
+
+    if(productFilter !== '') {
+      data.forEach(item => {
+        if (item.brand_name === productFilter) {
+          filteredProducts.push(item);
           statesAvailable.add(item.address.state);
           citiesAvailable.add(item.address.city);
         }
@@ -47,23 +93,16 @@ export default function Home() {
       // console.log('s: ',statesAvailable,'c: ', citiesAvailable)
       setStates([...statesAvailable]);
       setCities([...citiesAvailable]);
+      setFilteredData(filteredProducts);
     }
+  }
 
-    setFilteredData(filtered)
-  }, [filter])
-
-  // handle case where we dont have filtered data or client picks a city that isnt in the state
-  // useEffect(() => {
-  //   if(filteredData.length === 0) {
-  //     alert('No options in desired specification, resetting filters')
-  //   }
-  // }, [filteredData])
 
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
       <div name="filter-container">
-        <FilterContainer data={data} products={products} states={states} cities={cities} filter={filter} setFilter={setFilter}/>
+        <FilterContainer data={data} products={products} states={states} cities={cities} productFilter={productFilter} setProductFilter={setProductFilter} stateFilter={stateFilter} setStateFilter={setStateFilter} cityFilter={cityFilter} setCityFilter={setCityFilter} />
       </div>
       {/* Main Content Containers */}
       <div className="lg:p-10 lg:relative lg:left-20 lg:w-[100vw]">
