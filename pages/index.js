@@ -33,23 +33,20 @@ export default function Home() {
 
   useEffect(() => {
     let filtered = [];
+    let statesAvailable = new Set();
+    let citiesAvailable = new Set();
 
     if(filter.Product) {
       data.forEach(item => {
         if (item.brand_name === filter.Product) {
-          if(filter.State) {
-            if(filter.City) {
-              if(item.address.state === filter.State && item.address.city === filter.City) filtered.push(item)
-            } else {
-              if(item.address.state === filter.State) {
-                filtered.push(item);
-              }
-            }
-          } else {
-            filtered.push(item)
-          }
+          filtered.push(item);
+          statesAvailable.add(item.address.state);
+          citiesAvailable.add(item.address.city);
         }
       })
+      // console.log('s: ',statesAvailable,'c: ', citiesAvailable)
+      setStates([...statesAvailable]);
+      setCities([...citiesAvailable]);
     }
 
     setFilteredData(filtered)
