@@ -63,12 +63,15 @@ export default function Home() {
   //handle when user picks a city
   const applyCityFilter = () => {
     let filteredCities = [];
+    let citiesAvailable = new Set();
+
     filteredData.forEach(item => {
       if(item.address.city === cityFilter){
         filteredCities.push(item);
+        citiesAvailable.add(item.address.city);
       }
     })
-
+    setCities([...citiesAvailable]);
     setFilteredData(filteredCities);
   }
 
@@ -80,7 +83,6 @@ export default function Home() {
     if(productFilter !== '' && stateFilter !== '') {
       filteredData.forEach(item => {
         if (item.brand_name === productFilter && item.address.state === stateFilter) {
-          console.log('test', item)
           filteredProducts.push(item);
           statesAvailable.add(item.address.state);
           citiesAvailable.add(item.address.city);
