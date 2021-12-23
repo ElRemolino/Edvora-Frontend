@@ -4,11 +4,16 @@ import CarouselContainer from '../components/Carousel/CarouselContainer';
 
 export default function Home() {
   const [data, setData] = useState([]);
+  //data sent to carousel
   const [filteredData, setFilteredData] = useState([]);
+  //determins filter options on render
   const [products, setProducts] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
-  const [filter, setFilter] = useState({});
+  //state for which filter was chosen
+  const [productFilter, setProductFilter] = useState('');
+  const [stateFilter, setStateFilter] = useState('');
+  const [cityFilter, setCityFilter] = useState('');
 
   useEffect(() => {
     fetch('https://assessment-edvora.herokuapp.com')
@@ -31,37 +36,85 @@ export default function Home() {
       });
   }, []);
 
+  //handles if user picks new product
   useEffect(() => {
-    let filtered = [];
+    applyProductFilter();
+  }, [productFilter])
 
-
-    if(filter.Product) {
-      console.log('we have a product filter, ', filter.Product);
-      // go into loop over data
-      data.forEach(item => {
-        if (item.brand_name === filter.Product) {
-          if(filter.State) {
-            if(filter.City) {
-              if(item.address.state === filter.State && item.address.city === filter.City) filtered.push(item)
-            } else {
-              if(item.address.state === filter.State) {
-                filtered.push(item);
-              }
-            }
-          } else {
-            filtered.push(item)
-          }
-        }
-      })
+  //handle if user picks a new state
+  useEffect(() => {
+    if(stateFilter === "") {
+      applyProductFilter();
+    } else {
+      applyProductFilter();
+      applyStateFilter();
     }
-    setFilteredData(filtered)
-  }, [filter])
+  }, [stateFilter]);
 
+  useEffect(() => {
+    if(cityFilter === "") {
+      applyStateFilter();
+    } else {
+      applyStateFilter();
+      applyCityFilter();
+    }
+  }, [cityFilter])
+
+  //handle when user picks a city
+  const applyCityFilter = () => {
+    let filteredCities = [];
+    filteredData.forEach(item => {
+      if(item.address.city === cityFilter){
+        filteredCities.push(item);
+      }
+    })
+
+    setFilteredData(filteredCities);
+  }
+
+  const applyStateFilter = () => {
+    let filteredProducts = [];
+    let statesAvailable = new Set();
+    let citiesAvailable = new Set();
+
+    if(productFilter !== '' && stateFilter !== '') {
+      filteredData.forEach(item => {
+        if (item.brand_name === productFilter && item.address.state === stateFilter) {
+          console.log('test', item)
+          filteredProducts.push(item);
+          statesAvailable.add(item.address.state);
+          citiesAvailable.add(item.address.city);
+        }
+      });
+    }
+    setStates([...statesAvailable]);
+    setCities([...citiesAvailable]);
+    setFilteredData(filteredProducts);
+  }
+
+  const applyProductFilter = () => {
+    let filteredProducts = [];
+    let statesAvailable = new Set();
+    let citiesAvailable = new Set();
+
+    if(productFilter !== '') {
+      data.forEach(item => {
+        if (item.brand_name === productFilter) {
+          filteredProducts.push(item);
+          statesAvailable.add(item.address.state);
+          citiesAvailable.add(item.address.city);
+        }
+      });
+      setStates([...statesAvailable]);
+      setCities([...citiesAvailable]);
+      setFilteredData(filteredProducts);
+    }
+  }
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">
-      <div name="filter-container">
-        <FilterContainer data={data} products={products} states={states} cities={cities} filter={filter} setFilter={setFilter}/>
+      <div name="filter-container" className=" flex">
+        <FilterContainer data={data} products={products} states={states} cities={cities} productFilter={productFilter} setProductFilter={setProductFilter} stateFilter={stateFilter} setStateFilter={setStateFilter} cityFilter={cityFilter} setCityFilter={setCityFilter} />
       </div>
       {/* Main Content Containers */}
       <div className="lg:p-10 lg:relative lg:left-20 lg:w-[100vw]">
@@ -71,8 +124,8 @@ export default function Home() {
         </div>
         <div className=" lg:min-h-[80vh] lg:w-[70vw] md:min-h-[80vh] md:w-[60vw]  ">
           <div className=" lg:min-h-[80%] lg:w-[70vw] lg:space-y-20 md:spaye-y-20">
-            <CarouselContainer filteredData={filteredData} />
-            <CarouselContainer filteredData={filteredData} />
+            <CarouselContainer productFilter={productFilter} filteredData={filteredData} />
+            <CarouselContainer productFilter={productFilter} filteredData={filteredData} />
           </div>
         </div>
       </div>
