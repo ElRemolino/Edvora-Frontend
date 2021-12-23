@@ -39,11 +39,28 @@ export default function Home() {
   //handles if user picks new product
   useEffect(() => {
     applyProductFilter();
-    applyStateFilter();
-    applyCityFilter();
-  }, [productFilter, stateFilter, cityFilter])
+  }, [productFilter])
 
   //handle if user picks a new state
+  useEffect(() => {
+    if(stateFilter === "") {
+      applyProductFilter();
+    } else {
+      applyProductFilter();
+      applyStateFilter();
+    }
+  }, [stateFilter]);
+
+  useEffect(() => {
+    if(cityFilter === "") {
+      applyProductFilter();
+      applyStateFilter
+    } else {
+      applyProductFilter();
+      applyStateFilter();
+      applyCityFilter();
+    }
+  })
 
   //handle when user picks a city
   const applyCityFilter = () => {
@@ -55,7 +72,6 @@ export default function Home() {
     })
 
     setFilteredData(filteredCities);
-    // applyProductFilter();
   }
 
   const applyStateFilter = () => {
@@ -76,7 +92,6 @@ export default function Home() {
     setStates([...statesAvailable]);
     setCities([...citiesAvailable]);
     setFilteredData(filteredProducts);
-    console.log('filteredprod', filteredProducts, 'filteredData',filteredData);
   }
 
   const applyProductFilter = () => {
@@ -91,15 +106,12 @@ export default function Home() {
           statesAvailable.add(item.address.state);
           citiesAvailable.add(item.address.city);
         }
-      })
-      // console.log('s: ',statesAvailable,'c: ', citiesAvailable)
+      });
       setStates([...statesAvailable]);
       setCities([...citiesAvailable]);
       setFilteredData(filteredProducts);
     }
   }
-
-
 
   return (
     <div className="flex bg-edvora-greyCard min-h-screen min-w-screen">

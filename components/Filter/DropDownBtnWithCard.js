@@ -12,6 +12,7 @@ const DropDownBtnWithCard = ( { data, name, filter, setFilter } ) => {
     if (newFilter === display) {
       newFilter = '';
       setDisplay(name);
+      setFilter('')
     } else {
       setDisplay(newFilter);
       setFilter(newFilter);
