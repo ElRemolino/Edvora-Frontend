@@ -6,9 +6,9 @@ const DropDownCard = ( { data, handleFilters, name } ) => {
 
   return (
     <div className="lg:relative lg:flex-col lg:columns-1 lg:float-right md:float-none">
-      <ol className="lg:absolute flex-col lg:min-w-[160px] md:absolute md:mt-10 ">
+      <ol className="absolute flex-col lg:min-w-[160px] lg:left-1 lg:mt-2 md:mt-10 md:left-12 ">
         {data.map((item, i) => (
-          <li key={i} className="flex justify-center  relative bottom-10 left-5 min-h-[40px] text-edvora-offwhiteFont  border-2 rounded-md  border-edvora-hr bg-edvora-greyCard md:bg-green-400 b-2 hover:text-edvora-black hover:bg-edvora-hr font-medium w-[160px]" onClick={handleFilters} >
+          <li key={i} className="flex justify-center relative  z-10 bottom-10 left-5 min-h-[40px] text-edvora-offwhiteFont  border-2 rounded-md  border-edvora-hr bg-edvora-login b-2 hover:text-edvora-black hover:bg-edvora-hr font-medium w-[160px]" onClick={handleFilters} >
             {item}
           </li>
         ))}
