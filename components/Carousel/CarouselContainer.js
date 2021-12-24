@@ -3,7 +3,7 @@ import Card from './Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const CarouselContainer = ({ display, handleClick, productFilter, filteredData }) => {
+const CarouselContainer = ({ display, handleClick, productFilter }) => {
 
   return (
     <div className="lg:relative lg:top-14 lg:max-w-[70vw] lg:w-[80vw]">

@@ -35,6 +35,7 @@ export default function Home() {
         setProducts([...products]);
         setStates([...states]);
         setCities([...cities]);
+        setFilteredData(data);
         setDisplay(initialDisplay);
       });
   }, []);
